@@ -6,18 +6,15 @@ function createWindow() {
         width: 1200,
         height: 800,
         webPreferences: {
-            nodeIntegration: false, // For security reasons
-            contextIsolation: true, // Protect against prototype pollution
-            preload: path.join(__dirname, 'preload.js'), // Bridge between renderer and main
-            webSecurity: false // Disable web security for development
+            nodeIntegration: true,
+            contextIsolation: true,
+            preload: path.join(__dirname, 'preload.js'),
+            webSecurity: true // Mudando para true
         }
     });
 
     // Load the index.html file
     win.loadFile(path.join(__dirname, 'index.html'));
-
-    // Always open DevTools for debugging
-    win.webContents.openDevTools();
 
     // Log any console messages from the renderer process
     win.webContents.on('console-message', (event, level, message, line, sourceId) => {

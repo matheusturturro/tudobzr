@@ -44,6 +44,10 @@ async function carregarProdutos(page = 1) {
         const listaProdutos = document.getElementById('listaProdutos');
         listaProdutos.innerHTML = '';
 
+        if (!Array.isArray(produtos)) {
+            throw new Error('Resposta inválida do servidor');
+        }
+
         if (produtos.length === 0) {
             listaProdutos.innerHTML = `
                 <div class="col-12 text-center">
@@ -59,7 +63,7 @@ async function carregarProdutos(page = 1) {
             card.innerHTML = `
                 <div class="card">
                     ${produto.foto ? 
-                        `<img src="http://localhost:3000${produto.foto}" class="card-img-top" alt="${produto.nome}">` 
+                        `<img src="http://localhost:3001${produto.foto}" class="card-img-top" alt="${produto.nome}">` 
                         : '<div class="card-img-top bg-light text-center py-5">Sem imagem</div>'}
                     <div class="card-body">
                         <h5 class="card-title">${produto.nome}</h5>

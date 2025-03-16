@@ -4,8 +4,7 @@
   "description": "Cliente do sistema de bazar",
   "main": "./src/main.js",
   "scripts": {
-    "start": "npx.cmd concurrently \"cd ../server && node.exe server.js\" \"npx.cmd wait-on http://localhost:3000 && electron .\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx.cmd concurrently --kill-others \"cd ../server && node.exe server.js\" \"npx.cmd wait-on -l -t 30000 http://localhost:3001/produtos && electron .\""
   },
   "keywords": [],
   "author": "",
@@ -18,4 +17,4 @@
   "dependencies": {
     "axios": "^1.6.7"
   }
-} 
+}

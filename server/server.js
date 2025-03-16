@@ -9,11 +9,12 @@ const crypto = require('crypto');
 
 // Configuração do servidor
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-    origin: '*', // Allow all origins
+    origin: ['http://localhost:3001', 'file://*'],
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
     credentials: true
 }));
 app.use(express.json());
@@ -181,6 +182,11 @@ const initPreparedStatements = () => {
     };
 };
 
+// Adicionar no início das rotas, antes das outras rotas
+app.get('/', (req, res) => {
+    res.json({ message: 'API está funcionando!' });
+});
+
 // Rotas CRUD para produtos
 app.post('/produtos', upload.single('foto'), async (req, res) => {
     try {
@@ -237,10 +243,13 @@ app.get('/produtos', async (req, res) => {
             );
         });
 
-        res.json(rows); // Send just the rows array
+        // Adicionar log para debug
+        console.log('Produtos retornados:', rows);
+
+        res.json(rows);
     } catch (err) {
         console.error('Erro ao buscar produtos:', err);
-        res.status(500).json([]); // Return empty array on error
+        res.status(500).json({ erro: 'Erro ao buscar produtos' });
     }
 });
 

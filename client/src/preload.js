@@ -1,8 +1,8 @@
 const { contextBridge } = require('electron');
-const axios = require('axios');
+const axios = require('axios').default;
 
 // API base URL
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:3001';
 
 // Debug log function
 const debug = (...args) => {
