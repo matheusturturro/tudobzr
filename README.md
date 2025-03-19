@@ -26,9 +26,6 @@ Sistema desktop para gerenciamento de vendas de bazar, desenvolvido com Electron
   - Preço
   - Descrição
   - Foto do produto
-- ✅ Listagem de produtos com paginação
-- ✅ Exclusão de produtos
-- ✅ Visualização de detalhes do produto
 
 ### Vendas
 - ✅ Registro de vendas com:
@@ -38,12 +35,6 @@ Sistema desktop para gerenciamento de vendas de bazar, desenvolvido com Electron
   - Data da venda
 - ✅ Listagem de vendas com paginação
 
-## 🔄 Fluxo de Dados
-1. Interface desktop em Electron
-2. Comunicação cliente-servidor via API REST
-3. Persistência em banco SQLite
-4. Upload de imagens com armazenamento local
-
 ## 🚧 Funcionalidades Pendentes
 
 ### Produtos
@@ -51,6 +42,9 @@ Sistema desktop para gerenciamento de vendas de bazar, desenvolvido com Electron
 - [ ] Filtros de busca
 - [ ] Categorização de produtos
 - [ ] Controle de estoque
+- [ ] Listagem de produtos com paginação
+- [ ] Exclusão de produtos
+- [ ] Visualização de detalhes do produto
 
 ### Vendas
 - [ ] Comprovante de venda
@@ -62,6 +56,14 @@ Sistema desktop para gerenciamento de vendas de bazar, desenvolvido com Electron
 - [ ] Autenticação de usuários
 - [ ] Níveis de acesso
 - [ ] Backup automático
+
+
+## 🔄 Fluxo de Dados
+1. Interface desktop em Electron
+2. Comunicação cliente-servidor via API REST
+3. Persistência em banco SQLite
+4. Upload de imagens com armazenamento local
+
 
 ## 📦 Como Executar
 
@@ -78,13 +80,7 @@ cd client
 npm install
 ```
 
-4. Inicie o servidor:
-```bash
-cd server
-npm start
-```
-
-5. Em outro terminal, inicie o cliente:
+4. inicie o cliente:
 ```bash
 cd client
 npm start
@@ -93,7 +89,6 @@ npm start
 ## 🔧 Configuração do Ambiente
 - Node.js versão 14 ou superior
 - NPM ou Yarn para gerenciamento de pacotes
-- Sistema operacional: Windows, Linux ou macOS
 
 ## 🤝 Contribuição
 Contribuições são bem-vindas! Para contribuir:
@@ -102,9 +97,6 @@ Contribuições são bem-vindas! Para contribuir:
 3. Commit suas mudanças
 4. Push para a branch
 5. Abra um Pull Request
-
-## 📄 Licença
-Este projeto está sob a licença ISC.
 
 ## 🎯 Próximos Passos
 1. Implementar sistema de autenticação
